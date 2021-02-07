@@ -1,0 +1,25 @@
+라벨이미지 참고사이트
+https://github.com/tzutalin/labelImg
+https://uhhyunjoo.tistory.com/6
+
+opencv yolo 사이트
+https://docs.opencv.org/master/da/d9d/tutorial_dnn_yolo.html
+
+yolo
+https://pjreddie.com/darknet/yolo/
+https://cocodataset.org/#home         
+
+############################################################################
+라벨이미지 사용법
+Windows + Anaconda
+Download and install Anaconda (Python 3+)
+
+Open the Anaconda Prompt and go to the labelImg directory
+
+conda install pyqt=5
+conda install -c anaconda lxml
+cd labelImg-master
+pyrcc5 -o libs/resources.py resources.qrc #-> https://trac.osgeo.org/osgeo4w/
+python labelImg.py
+python labelImg.py [IMAGE_PATH] [PRE-DEFINED CLASS FILE
+#############################################################################
