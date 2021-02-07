@@ -1,4 +1,4 @@
-## contents
+## Study
 
 git add README.md : README.md 파일만 올릴 때
 git add . : 전체를 올릴 때
@@ -11,8 +11,8 @@ git push origin main
 
 
 
-## 이미지 라벨링 : https://cloud.annotations.ai/
+#### 이미지 라벨링 : https://cloud.annotations.ai/
                 https://github.com/cloud-annotations/training/
 
 
-## git markdown : https://gist.github.com/ihoneymon/652be052a0727ad59601
+#### git markdown : https://gist.github.com/ihoneymon/652be052a0727ad59601
