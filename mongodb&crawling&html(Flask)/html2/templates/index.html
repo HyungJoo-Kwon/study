@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    홈
+{% endblock %}
+
+{% block weather %}
+    <img src="http://openweathermap.org/img/wn/{{ icon }}@2x.png">
+    {{description}}
+    {{temp}}&deg;           <!-- &deg; 도씨 -->
+{% endblock %}
+
+{% block content %}
+{{message}}
+    <div class="jumbotron">
+      <h1 class="display-4">M O N G O</h1>
+      <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+      <hr class="my-4">
+      <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+      <ul>
+        <li>
+            flask 기반의 MongoDB 관리 시스템 입니다.
+        </li>
+      </ul>
+
+        <a class="btn btn-primary btn-lg" href="https://getbootstrap.com/docs/4.6/getting-started/introduction/" role="button"> See Boot Strap </a>
+        <a class="btn btn-primary btn-lg" href="https://docs.mongodb.com/manual/core/document/" role="button"> See MongoDB Doc </a>
+    </div>
+{% endblock %}

@@ -1,0 +1,40 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Title</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--    atlas connect info:-->
+<!--    <input type="text" name="atlas_connection_info" value="{{atlas_connection_info}}" >-->
+<!--</body>-->
+<!--</html>-->
+
+{% extends "layout.html" %}
+
+{% block content %}
+<form action="/atlas_connect_info_update" method="post">
+  <div class="mb-3">
+    <input type="radio" name="up_radio">
+    <label for="atlas_connect_info" class="form-label">atlas 접속 정보 : </label>
+    <input type="text" value="{{ atlas_connection_info }}" class="form-control" id="atlas_connect_info" name="atlas_connect_info" aria-describedby="emailHelp">
+  </div>
+  <br>
+  <div>
+    <input type="radio" name="down_radio">
+    <label for="atlas_connect_info" class="form-label">로컬 접속 정보 : </label>
+    <div>
+      <label> Host </label>
+      <input type="text" class="form-control" value="{{cluster[0]}}">
+    </div>
+    <div>
+      <label> Port </label>
+      <input type="text" class="form-control"  value="{{cluster[1]}}">
+    </div>
+
+  </div>
+  <br>
+  <button type="submit" class="btn btn-outline-secondary">저 장</button>
+</form>
+
+{% endblock content %}

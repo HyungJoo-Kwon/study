@@ -1,0 +1,97 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    서적 등록
+{% endblock %}
+
+{% block content %}
+<form action="/book_add_process" method="post" enctype="multipart/form-data">
+<form>
+  <div class="form-group col col-lg-8">
+    <label for="title">제 목</label>
+    <input type="text" class="form-control" id="title" name="title" placeholder="서적 제목 입력...">
+  </div>
+  <div class="form-group col col-lg-8">
+    <label for="file">표 지</label>
+    <input type="file" class="form-control" id="file" name="file" placeholder="표지 사진 선택...">
+    <small id="fileHelp" class="form-text text-muted"> 적당한 사이즈의 사진을 넣어주세요.</small>
+  </div>
+  <div class="form-group col col-lg-8">
+    <label for="author">저 자</label>
+    <input type="text" class="form-control" id="author" name="author" placeholder="저자명 입력...">
+  </div>
+  <div class="form-group col col-lg-8">
+    <label for="price">가격</label>
+    <input type="text" class="form-control" id="price" name="price" placeholder="가격 입력...">
+  </div>
+  <div class="form-group col col-lg-8">
+    <label for="isbn">ISBN</label>
+    <input type="text" class="form-control" id="isbn" name="isbn" placeholder="isbn 입력...">
+  </div>
+  <div class="form-group">
+      <button type="submit" class="btn btn-outline-secondary">등 록</button>
+  </div>
+
+</form>
+</form>
+{% endblock %}
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="ko">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>서적 등록</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<form action="/book_add_process" method="post" enctype="multipart/form-data">  &lt;!&ndash; 저장할 때 "multipart/form-data" 사용, 중요 &ndash;&gt;-->
+<!--    &lt;!&ndash; border="1" 선두께&ndash;&gt;-->
+<!--    <table width="300px" border="1" bordercolor="blue">-->
+<!--        <tr>-->
+<!--            <td>-->
+<!--                제목-->
+<!--            </td>-->
+<!--            <td>-->
+<!--                <input type="text" name="title">-->
+<!--            </td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <td>-->
+<!--                표지-->
+<!--            </td>-->
+<!--            <td>-->
+<!--                <input type="file" name="file">-->
+<!--            </td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <td>-->
+<!--                저자-->
+<!--            </td>-->
+<!--            <td>-->
+<!--                <input type="text" name="author">-->
+<!--            </td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <td>-->
+<!--                가격-->
+<!--            </td>-->
+<!--            <td>-->
+<!--                <input type="text" name="price">-->
+<!--            </td>-->
+<!--        </tr>-->
+<!--         <tr>-->
+<!--            <td>-->
+<!--                ISBN-->
+<!--            </td>-->
+<!--            <td>-->
+<!--                <input type="text" name="isbn">-->
+<!--            </td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <td colspan="2" align="center">-->
+<!--                <input type="submit" value="등 록">   &lt;!&ndash; 바디 밑에 폼을 작성 해줘야 함 submit 누르면 "/book_add_process"로 이동&ndash;&gt;-->
+<!--            </td>-->
+<!--        </tr>-->
+<!--    </table>-->
+<!--</form>-->
+<!--</body>-->
+<!--</html>-->

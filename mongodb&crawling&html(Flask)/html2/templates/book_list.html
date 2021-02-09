@@ -1,0 +1,124 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>B o o k     L i s t</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <h3> 서적 목록 </h3>-->
+<!--    <div style="width: 800px">         &lt;!&ndash; 정렬 &ndash;&gt;-->
+<!--        <div style="text-align: right">-->
+<!--            {{cursors_count}}건 검색 됨-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <table width="800px" border="1" bordercolor="blue">-->
+<!--        <tr>-->
+<!--            <td>ID</td>-->
+<!--            <th>제목</th>-->
+<!--            <td>표지</td>-->
+<!--            <td>저자</td>-->
+<!--            <td>가격</td>-->
+<!--&lt;!&ndash;            <td>ISBN</td>&ndash;&gt;-->
+<!--            <td>등록일자</td>-->
+<!--        </tr>-->
+
+<!--    {% for i in range(count) %}-->
+<!--        <tr>                           &lt;!&ndash; <a> </a> : 하이퍼링크달기 &ndash;&gt;-->
+<!--            <td>{{ cursor[i]["_id"] }}</td>-->
+<!--            <th ><a href="/book_details/{{cursor[i]['_id']}}">{{ cursor[i]["title"] }}</a></th>-->
+<!--            {% if encoded_data[i] != None %}-->
+<!--&lt;!&ndash;                <td ><a href="/book_details/{{cursor[i]['_id']}}"><img width="40px" src="{{ encoded_data[i] }}"></a></td>&ndash;&gt;-->
+<!--                <td><img width="50px" height="50px" src= "data:image/png;base64, {{ cursor[i]['encoded_data'].decode('utf-8')}}"></td>-->
+<!--            {% else %}-->
+<!--                <td></td>-->
+<!--            {% endif %}-->
+<!--            <td >{{ author[i] }}</td>-->
+<!--            <td >{{ price[i] }}</td>-->
+<!--&lt;!&ndash;                <td></td>&ndash;&gt;-->
+<!--            <td >{{ created_date[i] }}</td>-->
+<!--            <td >-->
+<!--                <a href="/book_edit/{{cursor[i]['_id']}}"><input type="button" value="수정"></a>-->
+<!--                <input type="button" value="삭제">-->
+<!--            </td>-->
+<!--        </tr>-->
+<!--    {% endfor %}-->
+<!--    </table>-->
+
+<!--&lt;!&ndash;    {% for book in books %}&ndash;&gt;-->
+<!--&lt;!&ndash;        <tr>&ndash;&gt;-->
+<!--&lt;!&ndash;            <td>{{ book._id }}</td>&ndash;&gt;-->
+<!--&lt;!&ndash;            <td><a href="/book_details/{{ book._id }}">{{ book.title }}</a></td>&ndash;&gt;-->
+<!--&lt;!&ndash;            <td><img width="50px" height="50px" src= "data:image/png;base64, {{ book.encoded_data.decode('utf-8')}}"></td>&ndash;&gt;-->
+<!--&lt;!&ndash;            <td>{{book.author}}</td>&ndash;&gt;-->
+<!--&lt;!&ndash;            <td>{{book.price}}</td>&ndash;&gt;-->
+<!--&lt;!&ndash;            <td>{{book.created_date}}</td>&ndash;&gt;-->
+<!--&lt;!&ndash;            <td>&ndash;&gt;-->
+<!--&lt;!&ndash;                <input type="button" value="수정">&ndash;&gt;-->
+<!--&lt;!&ndash;                <input type="button" value="삭제">&ndash;&gt;-->
+<!--&lt;!&ndash;            </td>&ndash;&gt;-->
+<!--&lt;!&ndash;        </tr>&ndash;&gt;-->
+<!--&lt;!&ndash;    {% endfor %}&ndash;&gt;-->
+<!--    <br>-->
+<!--</body>-->
+<!--</html>-->
+
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="container">
+    <h3 style="text-align: center"> 서적 목록 </h3>
+        <div style="text-align: right">
+            {{cursors_count}}건 검색 됨
+        </div>
+
+    <table class="table table-hover table-dark">
+        <tr>
+            <td>ID</td>
+            <th>제목</th>
+            <td>표지</td>
+            <td>저자</td>
+            <td>가격</td>
+<!--            <td>ISBN</td>-->
+            <td>등록일자</td>
+        </tr>
+
+    {% for i in range(count) %}
+        <tr>                           <!-- <a> </a> : 하이퍼링크달기 -->
+            <td>{{ cursor[i]["_id"] }}</td>
+            <th ><a href="/book_details/{{cursor[i]['_id']}}">{{ cursor[i]["title"] }}</a></th>
+            {% if encoded_data[i] != None %}
+<!--                <td ><a href="/book_details/{{cursor[i]['_id']}}"><img width="40px" src="{{ encoded_data[i] }}"></a></td>-->
+                <td><img width="50px" height="50px" src= "data:image/png;base64, {{ cursor[i]['encoded_data'].decode('utf-8')}}"></td>
+            {% else %}
+                <td></td>
+            {% endif %}
+            <td >{{ author[i] }}</td>
+            <td >{{ price[i] }}</td>
+<!--                <td></td>-->
+            <td >{{ created_date[i] }}</td>
+            <td >
+                <a href="/book_edit/{{cursor[i]['_id']}}"><input type="button" value="수정" class="btn btn-outline-success"></a>
+                <a href="/book_delete/{{cursor[i]['_id']}}"><input type="button" value="삭제" class="btn btn-outline-success"></a>
+
+            </td>
+        </tr>
+    {% endfor %}
+    </table>
+</div>
+    <br>
+{% endblock %}
+<!--    {% for book in books %}-->
+<!--        <tr>-->
+<!--            <td>{{ book._id }}</td>-->
+<!--            <td><a href="/book_details/{{ book._id }}">{{ book.title }}</a></td>-->
+<!--            <td><img width="50px" height="50px" src= "data:image/png;base64, {{ book.encoded_data.decode('utf-8')}}"></td>-->
+<!--            <td>{{book.author}}</td>-->
+<!--            <td>{{book.price}}</td>-->
+<!--            <td>{{book.created_date}}</td>-->
+<!--            <td>-->
+<!--                <input type="button" value="수정">-->
+<!--                <input type="button" value="삭제">-->
+<!--            </td>-->
+<!--        </tr>-->
+<!--    {% endfor %}-->

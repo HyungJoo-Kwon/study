@@ -1,0 +1,43 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="ko">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>서적 검색(id)</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<form action="/book_id_search_process" method="post">-->
+<!--    id:-->
+<!--    <input type="text" name="id">-->
+<!--    <input type="submit" value="검 색">-->
+
+<!--</form>-->
+<!--</body>-->
+<!--</html>-->
+{% extends "layout.html" %}
+
+{% block title %}
+    서적 검색
+{% endblock %}
+
+{% block content %}
+<form action="/book_id_search_process" method="post">
+<div class="dropdown" >
+  <button class="btn btn-secondary dropdown-toggle" name="btn" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    {{ button_name }}
+  </button>
+   <div class="dropdown-menu"  aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="#" name="id" value="check">Id</a>
+    <a class="dropdown-item" href="#" name="title">Title</a>
+    <a class="dropdown-item" href="#" name="author">Author</a>
+    <a class="dropdown-item" href="#" name="price">price</a>
+  </div>
+</div>
+
+
+  <input type="text" name="id">
+  <input type="submit" name="search" value="검색1">
+  <input type="submit" name="search" value="검색2">
+</form>
+
+
+{% endblock %}

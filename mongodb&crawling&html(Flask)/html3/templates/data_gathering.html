@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .flex-container {
+            display: flex;
+            flex-direction: row;
+            margin: 20px;
+
+            width: 400px;
+            margin: 0 auto;
+
+            box-shadow: 2px 2px 4px gray;
+        }
+    </style>
+</head>
+<body>
+    {% for movie in movie_list %}
+      <div class="flex-container">
+        <img style="width: 100px; height: 150px;" src="{{ movie.img_src }}">
+     <ul>
+         <li>관람가 등급 : {% for i in movie.age %} {{ i }} {% endfor %}</li>
+         <li>제목 : {{ movie.movie_name }}</li>
+         <li>평 점 : {{ movie.netizen }}</li>
+         <li>감독 : {{ movie.directer }}</li>
+         <li> 배우 :
+            {% for actor in movie.actor_list %}
+                {{ actor }},
+            {% endfor %}
+         </li>
+     </ul>
+     </div>
+
+
+    {%  endfor %}
+</body>
+</html>

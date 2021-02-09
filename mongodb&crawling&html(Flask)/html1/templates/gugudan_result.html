@@ -1,0 +1,19 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>구구단 출력</title>
+</head>
+<body>
+    <table border="1" bordercolor="blue">
+        {% for i in range(1,10) %}
+            <tr>
+                <td>
+                    <input type="text" name="result" value="{{value}} * {{i}} = {{value * i}}">
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
