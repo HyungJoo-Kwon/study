@@ -21,3 +21,32 @@ C++ Eigen 설치
 외부라이브러리 링크
  - https://wnsgml972.github.io/setting/2018/11/01/dll_lib/
 
+파이선 모델 가중치 복사하기
+```
+## Python ##
+model = MeshSegNet(num_classes=num_classes, num_channels=num_channels).to(device, dtype=torch.float)
+checkpoint = torch.load(os.path.join(model_path, model_name), map_location='cpu')
+model.load_state_dict(checkpoint['model_state_dict'])
+
+class Container(torch.nn.Module):
+    def __init__(self, my_values):
+        super().__init__()
+        for key in my_values:
+            setattr(self, key, my_values[key])
+
+container = torch.jit.script(Container(checkpoint["model_state_dict']))
+container.save("container.pt)
+
+## C++ ##
+MeshSegNet model = MeshSegNet(num_classes, num_channels, dropout_p);
+auto container = torch::jit::load("C:/Users/USER/Desktop/container.pt");  // <torch/script.h>
+for (auto p : model.named_parameters().keys())                 // pt 데이터 가중치 모델에 넣기
+	{	
+		cout << "p : " << p << endl;
+		model.named_parameters()[p] = container.attr(p).toTensor();   
+		//cout << model.named_parameters()[p] << endl;  // 확인 필요
+		
+	}
+ cout << container.attr("mlp1_conv1.bias").toTensor() << endl; // 불러온 pt 파일 weight
+	cout << model.named_parameters()["mlp1_conv1.bias"] << endl;  // 모델 weight
+```
