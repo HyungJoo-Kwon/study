@@ -1,1 +1,2 @@
-
+ - https://pytorch.org/cppdocs/frontend.html
+ - https://github.com/HyungJoo-Kwon/Deep_Learning_with_Libtorch
