@@ -42,11 +42,9 @@ MeshSegNet model = MeshSegNet(num_classes, num_channels, dropout_p);
 auto container = torch::jit::load("C:/Users/USER/Desktop/container.pt");  // <torch/script.h>
 for (auto p : model.named_parameters().keys())                 // pt 데이터 가중치 모델에 넣기
 {	
-	cout << "p : " << p << endl;
-	model.named_parameters()[p] = container.attr(p).toTensor();   
-	//cout << model.named_parameters()[p] << endl;  // 확인 필요
-
+	model.named_parameters()[p].data() = container.attr(p).toTensor();   
 }
+
 cout << container.attr("mlp1_conv1.bias").toTensor() << endl; // 불러온 pt 파일 weight
 cout << model.named_parameters()["mlp1_conv1.bias"] << endl;  // 모델 weight
 ```
