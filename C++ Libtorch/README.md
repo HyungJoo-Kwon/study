@@ -48,3 +48,11 @@ for (auto p : model.named_parameters().keys())                 // pt 데이터 �
 cout << container.attr("mlp1_conv1.bias").toTensor() << endl; // 불러온 pt 파일 weight
 cout << model.named_parameters()["mlp1_conv1.bias"] << endl;  // 모델 weight
 ```
+
+torch BatchNorm1d
+```
+## Python 에서 predict 시 ##
+nn.BatchNorm1d(64)
+## C++ 에서 predict 시 ##
+torch::nn::BatchNorm1d(torch::nn::BatchNorm1dOptions(64).track_running_stats(false));
+```
