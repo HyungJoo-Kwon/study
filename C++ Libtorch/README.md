@@ -56,3 +56,15 @@ nn.BatchNorm1d(64)
 ## C++ 에서 predict 시 ##
 torch::nn::BatchNorm1d(torch::nn::BatchNorm1dOptions(64).track_running_stats(false));
 ```
+
+save tensor 
+```
+torch::save({ x_tensor, a_s_tensor, a_l_tensor }, "c:/users/user/desktop/tensor.pt"); // https://shuye.dev/kb/ai-engineering/libtorch/
+```
+
+tensor slicing & indexing
+```
+tensor_prob_output.index({ 0,slice(),slice() }).sizes() // https://github.com/prabhuomkar/pytorch-cpp/blob/master/notebooks/tensor_slicing.ipynb
+tensor_prob_output.index({ 0,slice(), slice() }).argmax(-1) // https://pytorch.org/cppdocs/notes/tensor_indexing.html
+```
+
