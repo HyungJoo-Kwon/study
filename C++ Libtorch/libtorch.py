@@ -34,24 +34,24 @@ torch::jit::script::Module module;
 torch::Device device_type = torch::Device(torch::kCPU);
 auto predicted_labels_d = nc::NdArray<int>(decimated->GetNumberOfCells(), 1);
 try {
-		cout << "traced_model" << endl;
-		module = torch::jit::load("C:/Users/USER/Desktop/trace_model.pt");
-		//module.to(device_type)
-		module.eval();
-    
-		std::vector<torch::jit::IValue> inputs;
-		inputs.push_back(X_tensor);
-		inputs.push_back(A_S_tensor);
-		inputs.push_back(A_L_tensor);
+	cout << "traced_model" << endl;
+	module = torch::jit::load("C:/Users/USER/Desktop/trace_model.pt");
+	//module.to(device_type)
+	module.eval();
+   
+	std::vector<torch::jit::IValue> inputs;
+	inputs.push_back(X_tensor);
+	inputs.push_back(A_S_tensor);
+	inputs.push_back(A_L_tensor);
 		
-		auto output = module.forward(inputs).toTensor();
-		for (int i = 0; i < decimated->GetNumberOfCells(); i++)
-		{
-			predicted_labels_d(i, 0) = output.index({ 0,Slice(), Slice() }).argmax(-1)[i].item<int>();
-		}
+	auto output = module.forward(inputs).toTensor();
+	for (int i = 0; i < decimated->GetNumberOfCells(); i++)
+	{
+		predicted_labels_d(i, 0) = output.index({ 0,Slice(), Slice() }).argmax(-1)[i].item<int>();
 	}
-	catch (const c10::Error& e) {
-		cout << e.msg() << endl;
-		return -1;
-	}
+}
+catch (const c10::Error& e) {
+	cout << e.msg() << endl;
+	return -1;
+}
 ```
