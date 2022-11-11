@@ -1,0 +1,3 @@
+https://github.com/nsubtil/gco-v3.0/blob/master/GCoptimization.h#L79
+https://github.com/amueller/gco_python
+https://github.com/amueller/gco_python/blob/db5aa9470c43a1388b474ca450921fc812ea50b6/gco_python.pyx
