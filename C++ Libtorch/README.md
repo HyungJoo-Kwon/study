@@ -21,7 +21,7 @@ C++ Eigen 설치
 외부라이브러리 링크
  - https://wnsgml972.github.io/setting/2018/11/01/dll_lib/
 
-파이선 모델 가중치 복사하기
+파이선 모델 가중치 복사하기 (이 방법 잘 안되네)
 ```
 ## Python ##
 model = MeshSegNet(num_classes=num_classes, num_channels=num_channels).to(device, dtype=torch.float)
@@ -49,13 +49,7 @@ cout << container.attr("mlp1_conv1.bias").toTensor() << endl; // 불러온 pt �
 cout << model.named_parameters()["mlp1_conv1.bias"] << endl;  // 모델 weight
 ```
 
-torch BatchNorm1d
-```
-## Python 에서 predict 시 ##
-nn.BatchNorm1d(64)
-## C++ 에서 predict 시 ##
-torch::nn::BatchNorm1d(torch::nn::BatchNorm1dOptions(64).track_running_stats(false));
-```
+
 
 save tensor 
 ```
