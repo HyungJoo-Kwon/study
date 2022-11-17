@@ -50,9 +50,7 @@ cout << model.named_parameters()["mlp1_conv1.bias"] << endl;  // 모델 weight
 ```
 
 python 모델 c++ 에서 사용하기
-```
-libtorch.py 보세;
-```
+-> https://github.com/HyungJoo-Kwon/study/blob/main/C%2B%2B%20Libtorch/libtorch.py
 
 save tensor 
 ```
