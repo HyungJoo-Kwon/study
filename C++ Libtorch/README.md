@@ -49,7 +49,10 @@ cout << container.attr("mlp1_conv1.bias").toTensor() << endl; // 불러온 pt �
 cout << model.named_parameters()["mlp1_conv1.bias"] << endl;  // 모델 weight
 ```
 
-
+python 모델 c++ 에서 사용하기
+```
+libtorch.py 보세;
+```
 
 save tensor 
 ```
