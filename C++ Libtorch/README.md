@@ -75,6 +75,6 @@ inline TORCH_API void lazy_init_num_threads() {
 를
 
 at::internal::lazy_init_num_threads(); 
-로 
+로 변환
 
 ```
