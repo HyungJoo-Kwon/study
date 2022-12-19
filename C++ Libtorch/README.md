@@ -63,3 +63,18 @@ tensor_prob_output.index({ 0,slice(),slice() }).sizes() // https://github.com/pr
 tensor_prob_output.index({ 0,slice(), slice() }).argmax(-1) // https://pytorch.org/cppdocs/notes/tensor_indexing.html
 ```
 
+lazy_init_num_threads()   Error
+```
+inline TORCH_API void lazy_init_num_threads() {
+  thread_local bool init = false;
+  if (C10_UNLIKELY(!init)) {
+    at::init_num_threads();
+    init = true;
+  }
+}
+를
+
+at::internal::lazy_init_num_threads(); 
+로 
+
+```
