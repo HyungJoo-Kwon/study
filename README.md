@@ -6,3 +6,7 @@ git push origin main
 
 window 정품인증 창 없애기
 cmd 관리자 실행 - ( bcdedit -set TESTSIGNING OFF ) - 재부팅
+
+
+
+https://engineer-mole.tistory.com/75
