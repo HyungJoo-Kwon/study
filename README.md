@@ -10,18 +10,18 @@ cmd 관리자 실행 - ( bcdedit -set TESTSIGNING OFF ) - 재부팅
 https://engineer-mole.tistory.com/75
 
 ---------------------------------------------------------------------
-폴더 만든 후 
-git init
-git remote add origin "https://github.com/HyungJoo-Kwon/study.git"
+   폴더 만든 후 
+   git init
+   git remote add origin "https://github.com/HyungJoo-Kwon/study.git"
+   
+   1. git pull origin main
+   2. git fetch --all
+      git reset --hard origin/main
+      git pull origin main
 
-1. git pull origin main
-2. git fetch --all
-   git reset --hard origin/main
-   git pull origin main
-
-파일 수정 후   
-git add .
-git commit -m "comment"
-git push origin main 
-git status → 확인
+   파일 수정 후   
+   git add .
+   git commit -m "comment"
+   git push origin main 
+   git status → 확인
 ---------------------------------------------------------------------
